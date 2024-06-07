@@ -25,11 +25,11 @@ struct FeaturedScrollView: View {
                                 }
                                 
                         }, placeholder: {
-                            Image(.menuNotFound)
+                            Image(.recipeMock)
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .containerRelativeFrame(.horizontal) { width, _ in
-                                    width * 0.6
+                                    width * 0.8
                                 }
                         })
                         .clipShape(RoundedRectangle(cornerRadius: 20))
