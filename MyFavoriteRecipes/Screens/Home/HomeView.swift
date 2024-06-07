@@ -11,34 +11,40 @@ struct HomeView: View {
     @StateObject var homeVM = HomeViewModel()
     
     var body: some View {
-        ScrollView(.vertical) {
-            
-            VStack(alignment: .leading) {
+        ZStack {
+            ScrollView(.vertical) {
                 
-                Text("Featured")
-                    .font(.title)
-                    .fontWeight(.semibold)
-                    .padding()
-                
-                FeaturedScrollView(featuredRecipes: homeVM.featuredRecipes)
-                
-                Text("Categories")
-                    .font(.title)
-                    .fontWeight(.semibold)
-                    .padding()
-                
-                CategoriesScrollView()
-                
-                Text("All Recipes")
-                    .font(.title)
-                    .fontWeight(.semibold)
-                    .padding()
-                
-                RecipesScrollView(recipes: homeVM.allRecipes)
+                VStack(alignment: .leading) {
+                    
+                    Text("Featured")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                        .padding(.leading)
+                    
+                    FeaturedScrollView(featuredRecipes: homeVM.featuredRecipes)
+                    
+                    Text("Categories")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                        .padding(.leading)
+                    
+                    CategoriesScrollView()
+                    
+                    Text("All Recipes")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                        .padding(.leading)
+                    
+                    RecipesScrollView(recipes: homeVM.allRecipes)
+                }
             }
-        }
-        .task {
-            homeVM.allRecipes = await NetworkManager.shared.getRecipes()
+            .task {
+                await homeVM.loadRecipes()
+            }
+            
+            if homeVM.isLoading {
+                LoadingView()
+            }
         }
     }
 }

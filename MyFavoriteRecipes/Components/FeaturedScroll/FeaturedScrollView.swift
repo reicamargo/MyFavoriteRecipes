@@ -16,42 +16,51 @@ struct FeaturedScrollView: View {
             HStack {
                 ForEach(featuredRecipes, id:\.title) { featuredRecipe in
                     ZStack {
-                        Image(.recipeMock)
-                            .resizable()
-                            .scaledToFit()
-                            .containerRelativeFrame(.horizontal) { width, _ in
-                                width * 0.7
-                            }
-                            
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
-                            .shadow(radius: 3)
-                            .overlay(alignment: .bottom) {
-                                ZStack {
-                                    Rectangle()
-                                        .fill(.white.opacity(0.8))
-                                        .frame(height: 80)
-                                        .clipShape(.rect(bottomLeadingRadius: 20, bottomTrailingRadius: 20))
-                                    
-                                    VStack {
-                                        Text(featuredRecipe.title)
-                                            .font(.headline)
-                                            .foregroundStyle(.black)
-                                            .lineLimit(1)
-                                            .truncationMode(.tail)
-                                        
-                                        Text(featuredRecipe.preparationTime)
-                                            .font(.subheadline)
-                                            .foregroundStyle(.black)
-                                    }
-                                    
+                        AsyncImage(url: featuredRecipe.imageURL, content: { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .containerRelativeFrame(.horizontal) { width, _ in
+                                    width * 0.8
                                 }
+                                
+                        }, placeholder: {
+                            Image(.menuNotFound)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .containerRelativeFrame(.horizontal) { width, _ in
+                                    width * 0.6
+                                }
+                        })
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .shadow(radius: 3)
+                        .overlay(alignment: .bottom) {
+                            ZStack {
+                                Rectangle()
+                                    .fill(.white.opacity(0.8))
+                                    .frame(height: 80)
+                                    .clipShape(.rect(bottomLeadingRadius: 20, bottomTrailingRadius: 20))
+                                
+                                VStack {
+                                    Text(featuredRecipe.title)
+                                        .font(.headline)
+                                        .foregroundStyle(.black)
+                                        .lineLimit(1)
+                                        .truncationMode(.tail)
+                                    
+                                    Text(featuredRecipe.preparationTime)
+                                        .font(.subheadline)
+                                        .foregroundStyle(.black)
+                                }
+                                
                             }
+                        }
                     }
                     .padding(.trailing, 8)
                 }
             }
             .scrollTargetLayout()
-            .padding(.vertical)
+            .padding(.bottom)
         }
         .scrollTargetBehavior(.viewAligned)
     }

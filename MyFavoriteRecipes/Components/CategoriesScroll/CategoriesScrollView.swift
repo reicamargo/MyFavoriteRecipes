@@ -34,6 +34,7 @@ struct CategoriesScrollView: View {
             .scrollTargetLayout()
         }
         .scrollTargetBehavior(.viewAligned)
+        .padding(.bottom)
     }
 }
 

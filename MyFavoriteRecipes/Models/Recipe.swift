@@ -24,7 +24,7 @@ struct Recipe: Codable, Hashable {
     
     static let mockRecipe = Recipe(title: "Easy Pizza Toast do rei free",
                                    preparationTime: "Prep: 25 mins",
-                                   image: "https://yejiskitchenstories.com/wp-content/uploads/2022/04/pizza-toast-585x878.jpg",
+                                   image: "https://images.immediate.co.uk/production/volatile/sites/30/2022/08/Cajun-chicken-one-pot-3f68774.jpg",
                                    //date: .now,
                                    category: "Snacks",
                                    featured: true,
@@ -33,7 +33,7 @@ struct Recipe: Codable, Hashable {
                                     "Toast the bread: Pop sliced bread into a toaster or alternative toast under the grill/broiler of your oven on both sides.",
                                     "Add toppings: Place slices of toasted bread onto a rimmed baking sheet. Top the toast with pizza sauce. Scatter over grated or shredded mozzarella cheese and top with your choice of toppings. Sprinkle over dried oregano and place in a hot oven.",
                                     "Bake: Allow to cook until the cheese has melted then remove from the oven and serve."])
-    static let mockRecipes = [mockRecipe, mockRecipe, mockRecipe]
+    static let mockRecipes = [mockRecipe]
 }
 
 struct RecipeResponse: Codable {

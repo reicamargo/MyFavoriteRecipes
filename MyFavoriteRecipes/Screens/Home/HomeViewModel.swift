@@ -7,8 +7,10 @@
 
 import Foundation
 
+@MainActor
 final class HomeViewModel: ObservableObject {
     @Published var allRecipes = [Recipe]()
+    @Published var isLoading = true
     
     var featuredRecipes: [Recipe] {
         allRecipes.filter { $0.featured == true }
@@ -16,5 +18,13 @@ final class HomeViewModel: ObservableObject {
     
     init() {
         
+    }
+    
+    func loadRecipes() async {
+        isLoading = true
+        
+        allRecipes = await NetworkManager.shared.getRecipes()
+        
+        isLoading = false
     }
 }
