@@ -24,12 +24,8 @@ struct RecipeCellView: View {
                         }
                     
                 }, placeholder: {
-                    Image(.recipeMock)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .containerRelativeFrame(.horizontal) { width, _ in
-                            width * (cellFeatured ? 0.8 : 0.4)
-                        }
+                    LoadingView()
+                        .frame(width: cellFeatured ? 350 : 200, height: cellFeatured ? 318 : 296)
                 })
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .shadow(radius: 3)
