@@ -1,28 +1,28 @@
 //
-//  FeaturedScrollView.swift
+//  RecipeGridCellView.swift
 //  MyFavoriteRecipes
 //
-//  Created by Reinaldo Camargo on 06/06/24.
+//  Created by Reinaldo Camargo on 07/06/24.
 //
 
 import SwiftUI
 
-struct FeaturedScrollView: View {
-    var featuredRecipes: [Recipe]
+struct RecipeCellView: View {
+    var recipes: [Recipe]
+    var featured: Bool
     
     var body: some View {
         
-        ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                ForEach(featuredRecipes, id:\.title) { featuredRecipe in
-                    NavigationLink(value: featuredRecipe) {
+                ForEach(recipes, id:\.title) { recipe in
+                    NavigationLink(value: recipe) {
                         ZStack {
-                            AsyncImage(url: featuredRecipe.imageURL, content: { image in
+                            AsyncImage(url: recipe.imageURL, content: { image in
                                 image
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .containerRelativeFrame(.horizontal) { width, _ in
-                                        width * 0.8
+                                        width * (featured ? 0.9 : 0.5)
                                     }
                                 
                             }, placeholder: {
@@ -30,7 +30,7 @@ struct FeaturedScrollView: View {
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .containerRelativeFrame(.horizontal) { width, _ in
-                                        width * 0.8
+                                        width * (featured ? 0.8 : 0.4)
                                     }
                             })
                             .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -39,19 +39,23 @@ struct FeaturedScrollView: View {
                                 ZStack {
                                     Rectangle()
                                         .fill(.white.opacity(0.8))
-                                        .frame(height: 80)
+                                        .frame(height: featured ? 80 : 50)
                                         .clipShape(.rect(bottomLeadingRadius: 20, bottomTrailingRadius: 20))
                                     
                                     VStack {
-                                        Text(featuredRecipe.title)
-                                            .font(.headline)
+                                        Text(recipe.title)
+                                            .font(featured ? .headline : .subheadline)
                                             .foregroundStyle(.black)
-                                            .lineLimit(1)
+                                            .lineLimit(featured ? 1 : 2)
+                                            .multilineTextAlignment(.center)
                                             .truncationMode(.tail)
+                                            .padding(.horizontal)
                                         
-                                        Text(featuredRecipe.preparationTime)
-                                            .font(.subheadline)
-                                            .foregroundStyle(.black)
+                                        if featured {
+                                            Text(recipe.preparationTime)
+                                                .font(.subheadline)
+                                                .foregroundStyle(.black)
+                                        }
                                     }
                                     
                                 }
@@ -61,13 +65,10 @@ struct FeaturedScrollView: View {
                     }
                 }
             }
-            .scrollTargetLayout()
             .padding(.bottom)
-        }
-        .scrollTargetBehavior(.viewAligned)
     }
 }
 
 #Preview {
-    FeaturedScrollView(featuredRecipes: Recipe.mockRecipes)
+    RecipeCellView(recipes: Recipe.mockRecipes, featured: true)
 }

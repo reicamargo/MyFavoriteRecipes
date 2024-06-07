@@ -18,6 +18,7 @@ enum Categories: String, CaseIterable {
     case All = "All"
     
     var icon: String {
-        self.rawValue.lowercased()
+        let rawValue = self.rawValue.lowercased()
+        return rawValue == "all" ? "allCategories" : rawValue
     }
 }

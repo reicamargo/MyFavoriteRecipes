@@ -33,7 +33,7 @@ struct Recipe: Codable, Hashable {
                                     "Toast the bread: Pop sliced bread into a toaster or alternative toast under the grill/broiler of your oven on both sides.",
                                     "Add toppings: Place slices of toasted bread onto a rimmed baking sheet. Top the toast with pizza sauce. Scatter over grated or shredded mozzarella cheese and top with your choice of toppings. Sprinkle over dried oregano and place in a hot oven.",
                                     "Bake: Allow to cook until the cheese has melted then remove from the oven and serve."])
-    static let mockRecipes = [mockRecipe]
+    static let mockRecipes = [mockRecipe, mockRecipe, mockRecipe, mockRecipe]
 }
 
 struct RecipeResponse: Codable {

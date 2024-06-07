@@ -22,7 +22,9 @@ struct HomeView: View {
                             .fontWeight(.semibold)
                             .padding(.leading)
                         
-                        FeaturedScrollView(featuredRecipes: homeVM.featuredRecipes)
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            RecipeCellView(recipes: homeVM.featuredRecipes, featured: true)
+                        }
                         
                         Text("Categories")
                             .font(.title)
@@ -31,12 +33,14 @@ struct HomeView: View {
                         
                         CategoriesScrollView()
                         
-                        Text("All Recipes")
+                        Text("Recipes")
                             .font(.title)
                             .fontWeight(.semibold)
                             .padding(.leading)
                         
-                        RecipesScrollView(recipes: homeVM.allRecipes)
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            RecipeCellView(recipes: homeVM.recipes, featured: false)
+                        }
                     }
                 }
                 .task {

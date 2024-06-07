@@ -18,7 +18,7 @@ struct MainView: View {
                 .tabItem {
                     Label("Recipes", systemImage: "list.bullet.clipboard")
                 }
-            CategoriesView()
+            CategoriesView(categorySelected: .All)
                 .tabItem {
                     Label("Categories", systemImage: "tray.full")
                 }

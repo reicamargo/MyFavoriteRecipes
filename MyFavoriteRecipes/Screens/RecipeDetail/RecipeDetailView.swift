@@ -37,9 +37,6 @@ struct RecipeDetailView: View {
                 }
                 .frame(maxWidth: .infinity)
             
-            Text(recipe.title)
-                .font(.title2)
-            
             Form {
                 Section("Preparation time") {
                     Text(recipe.preparationTime)
