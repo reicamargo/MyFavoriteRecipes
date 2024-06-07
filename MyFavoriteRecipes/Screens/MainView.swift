@@ -14,14 +14,12 @@ struct MainView: View {
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
-            RecipesView()
-                .tabItem {
-                    Label("Recipes", systemImage: "list.bullet.clipboard")
-                }
+            
             CategoriesView(categorySelected: .All)
                 .tabItem {
                     Label("Categories", systemImage: "tray.full")
                 }
+            
             FavoritesView()
                 .tabItem {
                     Label("Favorites", systemImage: "heart")

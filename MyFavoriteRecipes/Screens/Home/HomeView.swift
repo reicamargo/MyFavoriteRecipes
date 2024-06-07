@@ -23,7 +23,12 @@ struct HomeView: View {
                             .padding(.leading)
                         
                         ScrollView(.horizontal, showsIndicators: false) {
-                            RecipeCellView(recipes: homeVM.featuredRecipes, featured: true)
+                            HStack {
+                                ForEach(homeVM.featuredRecipes, id:\.title) { recipe in
+                                    RecipeCellView(recipe: recipe, cellFeatured: true)
+                                }
+                            }
+                            .padding(.bottom)
                         }
                         
                         Text("Categories")
@@ -39,7 +44,12 @@ struct HomeView: View {
                             .padding(.leading)
                         
                         ScrollView(.horizontal, showsIndicators: false) {
-                            RecipeCellView(recipes: homeVM.recipes, featured: false)
+                            HStack {
+                                ForEach(homeVM.recipes, id:\.title) { recipe in
+                                    RecipeCellView(recipe: recipe, cellFeatured: false)
+                                }
+                            }
+                            .padding(.bottom)
                         }
                     }
                 }
