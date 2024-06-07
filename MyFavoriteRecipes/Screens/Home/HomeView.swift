@@ -38,7 +38,7 @@ struct HomeView: View {
                         
                         CategoriesScrollView()
                         
-                        Text("Recipes")
+                        Text("All Recipes")
                             .font(.title)
                             .fontWeight(.semibold)
                             .padding(.leading)
