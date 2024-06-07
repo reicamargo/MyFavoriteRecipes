@@ -47,6 +47,9 @@ struct HomeView: View {
                     LoadingView()
                 }
             }
+            .navigationDestination(for: Recipe.self) { recipe in
+                RecipeDetailView(recipe: recipe)
+            }
         }
     }
 }

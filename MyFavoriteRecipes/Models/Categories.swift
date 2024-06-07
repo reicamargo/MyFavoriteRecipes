@@ -15,6 +15,7 @@ enum Categories: String, CaseIterable {
     case Snacks = "Snacks"
     case Drinks = "Drinks"
     case Bakery = "Bakery"
+    case All = "All"
     
     var icon: String {
         self.rawValue.lowercased()

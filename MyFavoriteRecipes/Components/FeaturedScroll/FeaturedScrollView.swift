@@ -63,9 +63,6 @@ struct FeaturedScrollView: View {
             }
             .scrollTargetLayout()
             .padding(.bottom)
-            .navigationDestination(for: Recipe.self) { recipe in
-                RecipeDetailView(recipe: recipe)
-            }
         }
         .scrollTargetBehavior(.viewAligned)
     }
