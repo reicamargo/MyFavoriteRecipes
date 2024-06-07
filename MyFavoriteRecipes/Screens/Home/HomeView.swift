@@ -11,39 +11,41 @@ struct HomeView: View {
     @StateObject var homeVM = HomeViewModel()
     
     var body: some View {
-        ZStack {
-            ScrollView(.vertical) {
-                
-                VStack(alignment: .leading) {
+        NavigationStack {
+            ZStack {
+                ScrollView(.vertical) {
                     
-                    Text("Featured")
-                        .font(.title)
-                        .fontWeight(.semibold)
-                        .padding(.leading)
-                    
-                    FeaturedScrollView(featuredRecipes: homeVM.featuredRecipes)
-                    
-                    Text("Categories")
-                        .font(.title)
-                        .fontWeight(.semibold)
-                        .padding(.leading)
-                    
-                    CategoriesScrollView()
-                    
-                    Text("All Recipes")
-                        .font(.title)
-                        .fontWeight(.semibold)
-                        .padding(.leading)
-                    
-                    RecipesScrollView(recipes: homeVM.allRecipes)
+                    VStack(alignment: .leading) {
+                        
+                        Text("Featured")
+                            .font(.title)
+                            .fontWeight(.semibold)
+                            .padding(.leading)
+                        
+                        FeaturedScrollView(featuredRecipes: homeVM.featuredRecipes)
+                        
+                        Text("Categories")
+                            .font(.title)
+                            .fontWeight(.semibold)
+                            .padding(.leading)
+                        
+                        CategoriesScrollView()
+                        
+                        Text("All Recipes")
+                            .font(.title)
+                            .fontWeight(.semibold)
+                            .padding(.leading)
+                        
+                        RecipesScrollView(recipes: homeVM.allRecipes)
+                    }
                 }
-            }
-            .task {
-                await homeVM.loadRecipes()
-            }
-            
-            if homeVM.isLoading {
-                LoadingView()
+                .task {
+                    await homeVM.loadRecipes()
+                }
+                
+                if homeVM.isLoading {
+                    LoadingView()
+                }
             }
         }
     }

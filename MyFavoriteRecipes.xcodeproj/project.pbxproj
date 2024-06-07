@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3D1728B32C1326C7004BDDE6 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1728B22C1326C7004BDDE6 /* LoadingView.swift */; };
+		3D1728B62C1380CD004BDDE6 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1728B52C1380CD004BDDE6 /* RecipeDetailView.swift */; };
 		3D2821E22C1273490088BD59 /* MyFavoriteRecipesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2821E12C1273490088BD59 /* MyFavoriteRecipesApp.swift */; };
 		3D2821E42C1273490088BD59 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2821E32C1273490088BD59 /* MainView.swift */; };
 		3D2821E62C12734C0088BD59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D2821E52C12734C0088BD59 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		3D1728B22C1326C7004BDDE6 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		3D1728B52C1380CD004BDDE6 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 		3D2821DE2C1273490088BD59 /* MyFavoriteRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFavoriteRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D2821E12C1273490088BD59 /* MyFavoriteRecipesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoriteRecipesApp.swift; sourceTree = "<group>"; };
 		3D2821E32C1273490088BD59 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 				3D1728B22C1326C7004BDDE6 /* LoadingView.swift */,
 			);
 			path = Loading;
+			sourceTree = "<group>";
+		};
+		3D1728B42C1380B9004BDDE6 /* RecipeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				3D1728B52C1380CD004BDDE6 /* RecipeDetailView.swift */,
+			);
+			path = RecipeDetail;
 			sourceTree = "<group>";
 		};
 		3D2821D52C1273490088BD59 = {
@@ -116,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				3D2821E32C1273490088BD59 /* MainView.swift */,
+				3D1728B42C1380B9004BDDE6 /* RecipeDetail */,
 				3D2821FF2C1276030088BD59 /* Favorites */,
 				3D2821FE2C1275EB0088BD59 /* Categories */,
 				3D2821FD2C1275E20088BD59 /* Recipes */,
@@ -284,6 +295,7 @@
 				3D2822032C127BC50088BD59 /* Categories.swift in Sources */,
 				3D1728B32C1326C7004BDDE6 /* LoadingView.swift in Sources */,
 				3D2821F52C1274260088BD59 /* HomeView.swift in Sources */,
+				3D1728B62C1380CD004BDDE6 /* RecipeDetailView.swift in Sources */,
 				3D2822012C1277330088BD59 /* Recipe.swift in Sources */,
 				3D2822092C1296D90088BD59 /* CategoriesScrollView.swift in Sources */,
 				3D2822102C12A8BE0088BD59 /* HomeViewModel.swift in Sources */,

@@ -24,7 +24,7 @@ struct Recipe: Codable, Hashable {
     
     static let mockRecipe = Recipe(title: "Easy Pizza Toast do rei free",
                                    preparationTime: "Prep: 25 mins",
-                                   image: "https://images.immediate.co.uk/production/volatile/sites/30/2022/08/Cajun-chicken-one-pot-3f68774.jpg",
+                                   image: "https://potatorolls.com/wp-content/uploads/2020/10/Pizza_Toast-960x640.jpg",
                                    //date: .now,
                                    category: "Snacks",
                                    featured: true,

@@ -19,7 +19,7 @@ struct CategoriesScrollView: View {
                         Image(category.icon)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .foregroundStyle(.red)
+                            .foregroundStyle(.categoriesIcon)
                             .frame(width: 30)
                         
                         Text("\(category.rawValue)")
@@ -27,7 +27,7 @@ struct CategoriesScrollView: View {
                         
                     }
                     .frame(width: 140, height: 50)
-                    .background(.categories.opacity(0.2))
+                    .background(.categoriesBackground.opacity(0.2))
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
             }
