@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct CategoriesView: View {
-    @State var categorySelected: Categories
+    @State var categorySelected: Categories = .All
     
     var body: some View {
-        Text("Hello, World!")
+        Text("Choosen category: \(categorySelected.rawValue)")
     }
 }
 
 #Preview {
-    CategoriesView(categorySelected: .All)
+    CategoriesView()
 }

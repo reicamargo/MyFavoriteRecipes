@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct MyFavoriteRecipesApp: App {
+    
     var body: some Scene {
         WindowGroup {
             MainView()
+                .environmentObject(Router.shared)
         }
     }
 }

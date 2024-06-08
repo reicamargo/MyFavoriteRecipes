@@ -14,21 +14,24 @@ struct CategoriesScrollView: View {
             
             HStack {
                 ForEach(Categories.allCases, id: \.hashValue) { category in
+                    Button {
                         
-                    HStack {
-                        Image(category.icon)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .foregroundStyle(.categoriesIcon)
-                            .frame(width: 30)
-                        
-                        Text("\(category.rawValue)")
-                            .font(.headline)
-                        
+                    } label: {
+                        HStack {
+                            Image(category.icon)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .foregroundStyle(.categoriesIcon)
+                                .frame(width: 30)
+                            
+                            Text("\(category.rawValue)")
+                                .font(.headline)
+                        }
+                        .frame(width: 140, height: 50)
+                        .background(.categoriesBackground.opacity(0.2))
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
-                    .frame(width: 140, height: 50)
-                    .background(.categoriesBackground.opacity(0.2))
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .foregroundStyle(.primary)
                 }
             }
             .scrollTargetLayout()

@@ -8,22 +8,15 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject var router: Router
+    
     var body: some View {
-        TabView {
-            HomeView()
-                .tabItem {
-                    Label("Home", systemImage: "house")
-                }
-            
-            CategoriesView(categorySelected: .All)
-                .tabItem {
-                    Label("Categories", systemImage: "tray.full")
-                }
-            
-            FavoritesView()
-                .tabItem {
-                    Label("Favorites", systemImage: "heart")
-                }
+        TabView(selection: $router.selectedTab) {
+            ForEach(AppScreen.allCases, id: \.id) { screenTab in
+                screenTab.destination
+                    .tabItem { screenTab.label }
+                    .tag(screenTab.id)
+            }
         }
     }
 }
