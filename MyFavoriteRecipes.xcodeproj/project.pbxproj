@@ -13,6 +13,8 @@
 		3D1728BD2C148E1E004BDDE6 /* RecipeScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1728BC2C148E1E004BDDE6 /* RecipeScrollView.swift */; };
 		3D1728BF2C149973004BDDE6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1728BE2C149973004BDDE6 /* Router.swift */; };
 		3D1728C22C14A075004BDDE6 /* AppScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1728C12C14A075004BDDE6 /* AppScreen.swift */; };
+		3D1728C42C14AAF6004BDDE6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1728C32C14AAF6004BDDE6 /* Category.swift */; };
+		3D1728C62C14B0B6004BDDE6 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1728C52C14B0B6004BDDE6 /* Categories.swift */; };
 		3D2821E22C1273490088BD59 /* MyFavoriteRecipesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2821E12C1273490088BD59 /* MyFavoriteRecipesApp.swift */; };
 		3D2821E42C1273490088BD59 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2821E32C1273490088BD59 /* MainView.swift */; };
 		3D2821E62C12734C0088BD59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D2821E52C12734C0088BD59 /* Assets.xcassets */; };
@@ -21,9 +23,8 @@
 		3D2821F92C1275C50088BD59 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2821F82C1275C50088BD59 /* CategoriesView.swift */; };
 		3D2821FB2C1275CF0088BD59 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2821FA2C1275CF0088BD59 /* FavoritesView.swift */; };
 		3D2822012C1277330088BD59 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2822002C1277330088BD59 /* Recipe.swift */; };
-		3D2822032C127BC50088BD59 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2822022C127BC50088BD59 /* Categories.swift */; };
 		3D2822092C1296D90088BD59 /* CategoriesScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2822082C1296D90088BD59 /* CategoriesScrollView.swift */; };
-		3D28220E2C12A4590088BD59 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D28220D2C12A4590088BD59 /* NetworkManager.swift */; };
+		3D28220E2C12A4590088BD59 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D28220D2C12A4590088BD59 /* Network.swift */; };
 		3D2822102C12A8BE0088BD59 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D28220F2C12A8BE0088BD59 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,8 @@
 		3D1728BC2C148E1E004BDDE6 /* RecipeScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeScrollView.swift; sourceTree = "<group>"; };
 		3D1728BE2C149973004BDDE6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		3D1728C12C14A075004BDDE6 /* AppScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreen.swift; sourceTree = "<group>"; };
+		3D1728C32C14AAF6004BDDE6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		3D1728C52C14B0B6004BDDE6 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		3D2821DE2C1273490088BD59 /* MyFavoriteRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFavoriteRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D2821E12C1273490088BD59 /* MyFavoriteRecipesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoriteRecipesApp.swift; sourceTree = "<group>"; };
 		3D2821E32C1273490088BD59 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -43,9 +46,8 @@
 		3D2821F82C1275C50088BD59 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		3D2821FA2C1275CF0088BD59 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		3D2822002C1277330088BD59 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
-		3D2822022C127BC50088BD59 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		3D2822082C1296D90088BD59 /* CategoriesScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesScrollView.swift; sourceTree = "<group>"; };
-		3D28220D2C12A4590088BD59 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		3D28220D2C12A4590088BD59 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		3D28220F2C12A8BE0088BD59 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				3D1728C12C14A075004BDDE6 /* AppScreen.swift */,
+				3D1728C52C14B0B6004BDDE6 /* Categories.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -135,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				3D2822002C1277330088BD59 /* Recipe.swift */,
-				3D2822022C127BC50088BD59 /* Categories.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -155,8 +157,9 @@
 		3D2821F12C1273D50088BD59 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				3D28220D2C12A4590088BD59 /* NetworkManager.swift */,
+				3D28220D2C12A4590088BD59 /* Network.swift */,
 				3D1728BE2C149973004BDDE6 /* Router.swift */,
+				3D1728C32C14AAF6004BDDE6 /* Category.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -291,17 +294,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D28220E2C12A4590088BD59 /* NetworkManager.swift in Sources */,
+				3D28220E2C12A4590088BD59 /* Network.swift in Sources */,
 				3D2821E42C1273490088BD59 /* MainView.swift in Sources */,
-				3D2822032C127BC50088BD59 /* Categories.swift in Sources */,
 				3D1728B32C1326C7004BDDE6 /* LoadingView.swift in Sources */,
 				3D2821F52C1274260088BD59 /* HomeView.swift in Sources */,
+				3D1728C62C14B0B6004BDDE6 /* Categories.swift in Sources */,
 				3D1728BD2C148E1E004BDDE6 /* RecipeScrollView.swift in Sources */,
 				3D1728B62C1380CD004BDDE6 /* RecipeDetailView.swift in Sources */,
 				3D1728BF2C149973004BDDE6 /* Router.swift in Sources */,
 				3D2822012C1277330088BD59 /* Recipe.swift in Sources */,
 				3D2822092C1296D90088BD59 /* CategoriesScrollView.swift in Sources */,
 				3D2822102C12A8BE0088BD59 /* HomeViewModel.swift in Sources */,
+				3D1728C42C14AAF6004BDDE6 /* Category.swift in Sources */,
 				3D1728C22C14A075004BDDE6 /* AppScreen.swift in Sources */,
 				3D2821FB2C1275CF0088BD59 /* FavoritesView.swift in Sources */,
 				3D1728B82C139AAF004BDDE6 /* RecipeCellView.swift in Sources */,

@@ -23,7 +23,7 @@ final class HomeViewModel: ObservableObject {
     func loadRecipes() async {
         isLoading = true
         
-        recipes = await NetworkManager.shared.getRecipes()
+        recipes = await Network.shared.getRecipes()
         
         isLoading = false
     }

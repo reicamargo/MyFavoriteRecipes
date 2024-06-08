@@ -8,13 +8,20 @@
 import SwiftUI
 
 struct CategoriesView: View {
-    @State var categorySelected: Categories = .All
+    @EnvironmentObject var acategory: Category
     
     var body: some View {
-        Text("Choosen category: \(categorySelected.rawValue)")
+        switch acategory.selected {
+        case .All:
+            Text("Choosen category: All")
+        default:
+            Text("Choosen category: other")
+        }
+        
     }
 }
 
 #Preview {
     CategoriesView()
+        .environmentObject(Category())
 }

@@ -7,8 +7,8 @@
 
 import Foundation
 
-final class NetworkManager {
-    static let shared = NetworkManager()
+final class Network {
+    static let shared = Network()
     
     private let baseAPI: String
     private let decoder: JSONDecoder

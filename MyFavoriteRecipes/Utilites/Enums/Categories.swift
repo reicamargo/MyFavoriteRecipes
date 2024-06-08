@@ -2,12 +2,13 @@
 //  Categories.swift
 //  MyFavoriteRecipes
 //
-//  Created by Reinaldo Camargo on 06/06/24.
+//  Created by Reinaldo Camargo on 08/06/24.
 //
 
 import Foundation
 
 enum Categories: String, CaseIterable {
+    case All = "All"
     case Breakfast = "Breakfast"
     case Lunch = "Lunch"
     case Dinner = "Dinner"
@@ -15,7 +16,6 @@ enum Categories: String, CaseIterable {
     case Snacks = "Snacks"
     case Drinks = "Drinks"
     case Bakery = "Bakery"
-    case All = "All"
     
     var icon: String {
         let rawValue = self.rawValue.lowercased()

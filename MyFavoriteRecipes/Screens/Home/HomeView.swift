@@ -10,7 +10,6 @@ import SwiftUI
 struct HomeView: View {
     @StateObject var homeVM = HomeViewModel()
     
-    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -28,7 +27,6 @@ struct HomeView: View {
                         CategoriesScrollView()
                         
                         RecipeScrollView(sectionTitle: "All Recipes", recipes: homeVM.recipes, featuredSection: false)
-                        
                     }
                 }
                 .task {

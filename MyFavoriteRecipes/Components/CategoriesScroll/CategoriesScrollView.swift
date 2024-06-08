@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CategoriesScrollView: View {
+    @EnvironmentObject var selectedCategory: Category
+    
     var body: some View {
         
         ScrollView(.horizontal, showsIndicators: false) {
@@ -15,7 +17,8 @@ struct CategoriesScrollView: View {
             HStack {
                 ForEach(Categories.allCases, id: \.hashValue) { category in
                     Button {
-                        
+                        selectedCategory.selected = category
+                        Router.shared.selectedTab = .categories
                     } label: {
                         HStack {
                             Image(category.icon)
