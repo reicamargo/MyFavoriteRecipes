@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecipeCellView: View {
     var recipe: Recipe
-    var cellFeatured: Bool
+    var isFeatured: Bool
     
     var body: some View {
         
@@ -20,12 +20,12 @@ struct RecipeCellView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .containerRelativeFrame(.horizontal) { width, _ in
-                            width * (cellFeatured ? 0.9 : 0.5)
+                            width * (isFeatured ? 0.9 : 0.5)
                         }
                     
                 }, placeholder: {
                     LoadingView()
-                        .frame(width: cellFeatured ? 350 : 200, height: cellFeatured ? 318 : 296)
+                        .frame(width: isFeatured ? 350 : 200, height: isFeatured ? 318 : 296)
                 })
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .shadow(radius: 3)
@@ -33,19 +33,19 @@ struct RecipeCellView: View {
                     ZStack {
                         Rectangle()
                             .fill(.white.opacity(0.8))
-                            .frame(height: cellFeatured ? 80 : 50)
+                            .frame(height: isFeatured ? 80 : 50)
                             .clipShape(.rect(bottomLeadingRadius: 20, bottomTrailingRadius: 20))
                         
                         VStack {
                             Text(recipe.title)
-                                .font(cellFeatured ? .headline : .subheadline)
+                                .font(isFeatured ? .headline : .subheadline)
                                 .foregroundStyle(.black)
-                                .lineLimit(cellFeatured ? 1 : 2)
+                                .lineLimit(isFeatured ? 1 : 2)
                                 .multilineTextAlignment(.center)
                                 .truncationMode(.tail)
                                 .padding(.horizontal)
                             
-                            if cellFeatured {
+                            if isFeatured {
                                 Text(recipe.preparationTime)
                                     .font(.subheadline)
                                     .foregroundStyle(.black)
@@ -61,5 +61,5 @@ struct RecipeCellView: View {
 }
 
 #Preview {
-    RecipeCellView(recipe: Recipe.mockRecipe, cellFeatured: true)
+    RecipeCellView(recipe: Recipe.mockRecipe, isFeatured: true)
 }
