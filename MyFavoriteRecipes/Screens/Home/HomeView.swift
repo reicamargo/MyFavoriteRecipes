@@ -17,19 +17,7 @@ struct HomeView: View {
                     
                     VStack(alignment: .leading) {
                         
-                        Text("Featured")
-                            .font(.title)
-                            .fontWeight(.semibold)
-                            .padding(.leading)
-                        
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(homeVM.featuredRecipes, id:\.title) { recipe in
-                                    RecipeCellView(recipe: recipe, cellFeatured: true)
-                                }
-                            }
-                            .padding(.bottom)
-                        }
+                        RecipeScrollView(sectionTitle: "Featured", recipes: homeVM.featuredRecipes, featuredSection: true)
                         
                         Text("Categories")
                             .font(.title)
@@ -38,19 +26,8 @@ struct HomeView: View {
                         
                         CategoriesScrollView()
                         
-                        Text("All Recipes")
-                            .font(.title)
-                            .fontWeight(.semibold)
-                            .padding(.leading)
+                        RecipeScrollView(sectionTitle: "All Recipes", recipes: homeVM.recipes, featuredSection: false)
                         
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(homeVM.recipes, id:\.title) { recipe in
-                                    RecipeCellView(recipe: recipe, cellFeatured: false)
-                                }
-                            }
-                            .padding(.bottom)
-                        }
                     }
                 }
                 .task {
