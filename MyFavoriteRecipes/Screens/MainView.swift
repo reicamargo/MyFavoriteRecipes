@@ -23,4 +23,7 @@ struct MainView: View {
 
 #Preview {
     MainView()
+        .environmentObject(Router.shared)
+        .environmentObject(Category())
+        
 }

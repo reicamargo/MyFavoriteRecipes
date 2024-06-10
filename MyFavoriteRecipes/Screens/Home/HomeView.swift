@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var homeVM = HomeViewModel()
+    @EnvironmentObject var recipeCategory: Category
     
     var body: some View {
         NavigationStack {
@@ -24,7 +25,10 @@ struct HomeView: View {
                             .fontWeight(.semibold)
                             .padding(.leading)
                         
-                        CategoriesScrollView()
+                        CategoriesScrollView() { selectedCategory in
+                            recipeCategory.selected = selectedCategory
+                            Router.shared.selectedTab = .categories
+                        }
                         
                         RecipeScrollView(sectionTitle: "All Recipes", recipes: homeVM.recipes, featuredSection: false)
                     }
