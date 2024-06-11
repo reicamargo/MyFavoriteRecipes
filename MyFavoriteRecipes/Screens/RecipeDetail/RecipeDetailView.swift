@@ -18,9 +18,7 @@ struct RecipeDetailView: View {
                         .aspectRatio(contentMode: .fit)
                     
                 }, placeholder: {
-                    Image(.recipeMock)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
+                    LoadingView()
                 })
                 .overlay(alignment: Alignment(horizontal: .trailing, vertical: .bottom)) {
                     ZStack {

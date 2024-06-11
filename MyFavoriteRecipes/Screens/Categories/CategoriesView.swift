@@ -24,29 +24,7 @@ struct CategoriesView: View {
                     
                     List(categoriesVM.filteredRecipes, id: \.title) { recipe in
                         NavigationLink(value: recipe) {
-                            HStack {
-                                AsyncImage(url: recipe.imageURL, content: { image in
-                                    image
-                                        .resizable()
-                                        .scaledToFill()
-                                    
-                                }, placeholder: {
-                                    LoadingView()
-                                        .frame(width: 90, height: 60)
-                                })
-                                .frame(width: 90,height: 60)
-                                
-                                VStack {
-                                    Text(recipe.title)
-                                        .font(.body)
-                                        .multilineTextAlignment(.leading)
-                                        .lineLimit(2)
-                                        .truncationMode(.tail)
-                                    
-                                    Text(recipe.category)
-                                        .font(.caption)
-                                }
-                            }
+                            RecipeListCellView(recipe: recipe)
                         }
                     }
                     .listRowSpacing(8)

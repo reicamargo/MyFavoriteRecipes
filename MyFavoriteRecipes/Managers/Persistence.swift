@@ -13,21 +13,27 @@ final class Persistence {
     
     private init() { }
     
-    func getFavorites() -> Favorite {
-        guard let data = UserDefaults.standard.data(forKey: key) else { return Favorite() }
+    func getFavorites() throws -> [Recipe] {
+        guard let data = UserDefaults.standard.data(forKey: key) else { return [] }
         
-        guard let favorites = try? JSONDecoder().decode(Favorite.self, from: data) else { return Favorite() }
-        
-        return favorites
+        do {
+            return try JSONDecoder().decode([Recipe].self, from: data)
+        } catch {
+            throw PersistenceErrors.unableToLoadFavorites
+        }
     }
     
     func isRecipeFavorite(recipe: Recipe) -> Bool {
-        let favorites = getFavorites()
-        return favorites.recipes.contains(recipe)
+        do {
+            let favorites = try getFavorites()
+            return favorites.contains(recipe)
+        } catch {
+            return false
+        }
     }
     
     
-    private func saveFavorites(favorites: Favorite) async throws {
+    private func saveFavorites(favorites: [Recipe]) async throws {
         do {
             let encodedFavorite = try JSONEncoder().encode(favorites)
             UserDefaults.standard.set(encodedFavorite, forKey: key)
@@ -38,27 +44,30 @@ final class Persistence {
     }
     
     func updateFavorites(recipe: Recipe, action: FavoritesAction) async throws {
-        var favorites = getFavorites()
+        var favorites = try getFavorites()
         
         if action == .add {
-            guard !favorites.recipes.contains(recipe) else { throw PersistenceErrors.recipeAlreadyExists }
+            guard !favorites.contains(recipe) else { throw PersistenceErrors.recipeAlreadyExists }
             
-            favorites.recipes.append(recipe)
+            favorites.append(recipe)
         } else {
-            guard let index = favorites.recipes.firstIndex(of: recipe) else { throw PersistenceErrors.indexNotFound }
-                
-            favorites.recipes.remove(at: index)
+            guard let index = favorites.firstIndex(of: recipe) else { throw PersistenceErrors.indexNotFound }
+            favorites.remove(at: index)
         }
+        
+        try await saveFavorites(favorites: favorites)
+    }
+    
+    func removeFavorites(attOffsets indexOffset: IndexSet) async throws {
+        var favorites = try getFavorites()
+        favorites.remove(atOffsets: indexOffset)
         
         try await saveFavorites(favorites: favorites)
     }
 }
 
-enum FavoritesAction {
-    case add, remove
-}
-
 enum PersistenceErrors: String, Error {
+    case unableToLoadFavorites = "Unable to load favorites..."
     case recipeAlreadyExists = "This recipe already exists. You must really love this recipe!"
     case indexNotFound = "Index not found"
     case unableToSave = "Couldn't save..."

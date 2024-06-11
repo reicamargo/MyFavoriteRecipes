@@ -21,7 +21,7 @@ struct RecipeScrollView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ForEach(recipes, id:\.title) { recipe in
-                    RecipeCellView(recipe: recipe, isFeatured: featuredSection)
+                    RecipeGridCellView(recipe: recipe, isFeatured: featuredSection)
                 }
             }
             .padding(.bottom)

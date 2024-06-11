@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RecipeCellView: View {
+struct RecipeGridCellView: View {
     var recipe: Recipe
     var isFeatured: Bool
     
@@ -61,5 +61,5 @@ struct RecipeCellView: View {
 }
 
 #Preview {
-    RecipeCellView(recipe: Recipe.mockRecipe, isFeatured: true)
+    RecipeGridCellView(recipe: Recipe.mockRecipe, isFeatured: true)
 }
