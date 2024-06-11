@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct RecipeDetailView: View {
-    var recipe: Recipe
+    @ObservedObject var recipeDetailVM: RecipeDetailViewModel
     
     var body: some View {
         VStack {
-                AsyncImage(url: recipe.imageURL, content: { image in
+            AsyncImage(url: recipeDetailVM.recipe.imageURL, content: { image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -27,7 +27,7 @@ struct RecipeDetailView: View {
                         Circle()
                             .fill(.black.opacity(0.6))
                             .frame(width: 60)
-                        Image(Categories(rawValue: recipe.category)?.icon ?? "backery")
+                        Image(Categories(rawValue: recipeDetailVM.recipe.category)?.icon ?? "backery")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .foregroundStyle(.yellow)
@@ -39,24 +39,35 @@ struct RecipeDetailView: View {
             
             Form {
                 Section("Preparation time") {
-                    Text(recipe.preparationTime)
+                    Text(recipeDetailVM.recipe.preparationTime)
                 }
                 
                 Section("Ingredients") {
-                    List(recipe.ingredients, id: \.self) { ingredient in
+                    List(recipeDetailVM.recipe.ingredients, id: \.self) { ingredient in
                         Text(ingredient)
                     }
                 }
                 
                 Section("Instructions") {
-                    List(recipe.instructions, id: \.self) { instruction in
+                    List(recipeDetailVM.recipe.instructions, id: \.self) { instruction in
                         Text(instruction)
                     }
                 }
             }
         }
-        .navigationTitle(recipe.title)
+        .navigationTitle(recipeDetailVM.recipe.title)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            Button {
+                recipeDetailVM.isFavorite.toggle()
+            } label: {
+                Image(systemName: recipeDetailVM.isFavorite ? "heart.fill" : "heart")
+            }
+        }
+    }
+    
+    init(recipe: Recipe) {
+        self.recipeDetailVM = RecipeDetailViewModel(recipe: recipe)
     }
 }
 
