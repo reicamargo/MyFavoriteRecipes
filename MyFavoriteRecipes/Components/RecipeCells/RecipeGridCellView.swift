@@ -15,18 +15,11 @@ struct RecipeGridCellView: View {
         
         NavigationLink(value: recipe) {
             ZStack {
-                AsyncImage(url: recipe.imageURL, content: { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .containerRelativeFrame(.horizontal) { width, _ in
-                            width * (isFeatured ? 0.9 : 0.5)
-                        }
-                    
-                }, placeholder: {
-                    LoadingView()
-                        .frame(width: isFeatured ? 350 : 200, height: isFeatured ? 318 : 296)
-                })
+                RecipeRemoteImageView(urlString: recipe.image)
+                .aspectRatio(contentMode: .fill)
+                .containerRelativeFrame(.horizontal) { width, _ in
+                    width * (isFeatured ? 0.9 : 0.5)
+                }
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .shadow(radius: 3)
                 .overlay(alignment: .bottom) {

@@ -12,14 +12,9 @@ struct RecipeDetailView: View {
     
     var body: some View {
         VStack {
-            AsyncImage(url: recipeDetailVM.recipe.imageURL, content: { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                    
-                }, placeholder: {
-                    LoadingView()
-                })
+            RecipeRemoteImageView(urlString: recipeDetailVM.recipe.image)
+                .aspectRatio(contentMode: .fit)
+                .shadow(radius: 8)
                 .overlay(alignment: Alignment(horizontal: .trailing, vertical: .bottom)) {
                     ZStack {
                         Circle()

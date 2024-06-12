@@ -12,16 +12,10 @@ struct RecipeListCellView: View {
     
     var body: some View {
         HStack {
-            AsyncImage(url: recipe.imageURL, content: { image in
-                image
-                    .resizable()
-            }, placeholder: {
-                LoadingView()
-                    .frame(width: 100, height: 80)
-            })
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .frame(width: 100, height: 80)
-            .padding(.trailing)
+            RecipeRemoteImageView(urlString: recipe.image)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .frame(width: 100, height: 80)
+                .padding(.trailing)
             
             VStack(alignment: .leading) {
                 Text(recipe.title)

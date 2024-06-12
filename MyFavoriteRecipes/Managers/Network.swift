@@ -5,19 +5,22 @@
 //  Created by Reinaldo Camargo on 06/06/24.
 //
 
-import Foundation
+import SwiftUI
 
 final class Network {
     static let shared = Network()
     
     private let baseAPI: String
     private let decoder: JSONDecoder
+    private let cache: NSCache<NSString, UIImage>
     
-    private init() { 
+    private init() {
         baseAPI = "https://api.jsonbin.io/v3/b/666238ccad19ca34f8755032"
         decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        cache = NSCache<NSString, UIImage>()
     }
     
     func getRecipes() async throws -> [Recipe] {
@@ -43,6 +46,28 @@ final class Network {
             
         } catch {
             throw NetworkError.unableToDecode(message:"Failed to decode: \(error.localizedDescription)")
+        }
+    }
+    
+    func downloadImage(fromURLString urlString: String) async -> UIImage? {
+        let cacheKey = NSString(string: urlString)
+        
+        if let image = cache.object(forKey: cacheKey) {
+            return image
+        }
+        
+        guard let urlImage = URL(string: urlString) else { return nil }
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: urlImage)
+            
+            guard let image = UIImage(data: data) else { return nil }
+            cache.setObject(image, forKey: cacheKey)
+            
+            return image
+            
+        } catch {
+            return nil
         }
     }
 }

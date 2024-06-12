@@ -33,6 +33,9 @@
 		3D9A5EB32C18D0C000B597FE /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A5EB22C18D0C000B597FE /* FavoriteViewModel.swift */; };
 		3D9A5EB52C18DBAA00B597FE /* RecipeListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A5EB42C18DBAA00B597FE /* RecipeListCellView.swift */; };
 		3DBB54892C18F09F00389CFA /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBB54882C18F09F00389CFA /* AlertItem.swift */; };
+		3DBB54912C1A332B00389CFA /* RemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBB54902C1A332B00389CFA /* RemoteImageView.swift */; };
+		3DBB54942C1A365C00389CFA /* RecipeRemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBB54932C1A365C00389CFA /* RecipeRemoteImageView.swift */; };
+		3DBB54962C1A380F00389CFA /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBB54952C1A380F00389CFA /* ImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +66,9 @@
 		3D9A5EB22C18D0C000B597FE /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		3D9A5EB42C18DBAA00B597FE /* RecipeListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListCellView.swift; sourceTree = "<group>"; };
 		3DBB54882C18F09F00389CFA /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
+		3DBB54902C1A332B00389CFA /* RemoteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageView.swift; sourceTree = "<group>"; };
+		3DBB54932C1A365C00389CFA /* RecipeRemoteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRemoteImageView.swift; sourceTree = "<group>"; };
+		3DBB54952C1A380F00389CFA /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +190,7 @@
 		3D2821F22C1273DD0088BD59 /* Utilites */ = {
 			isa = PBXGroup;
 			children = (
+				3DBB548F2C1A32F500389CFA /* Images */,
 				3D1728C02C14A06A004BDDE6 /* Enums */,
 			);
 			path = Utilites;
@@ -192,6 +199,7 @@
 		3D2821F32C1273F60088BD59 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3DBB54922C1A362900389CFA /* RecipeRemoteImage */,
 				3DBB54872C18F06E00389CFA /* Alert */,
 				3D1728BB2C148DE1004BDDE6 /* RecipeScroll */,
 				3D1728B12C1326B3004BDDE6 /* Loading */,
@@ -251,6 +259,23 @@
 				3DBB54882C18F09F00389CFA /* AlertItem.swift */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		3DBB548F2C1A32F500389CFA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3DBB54902C1A332B00389CFA /* RemoteImageView.swift */,
+				3DBB54952C1A380F00389CFA /* ImageLoader.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		3DBB54922C1A362900389CFA /* RecipeRemoteImage */ = {
+			isa = PBXGroup;
+			children = (
+				3DBB54932C1A365C00389CFA /* RecipeRemoteImageView.swift */,
+			);
+			path = RecipeRemoteImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +353,7 @@
 				3D2821E42C1273490088BD59 /* MainView.swift in Sources */,
 				3D1728B32C1326C7004BDDE6 /* LoadingView.swift in Sources */,
 				3D2821F52C1274260088BD59 /* HomeView.swift in Sources */,
+				3DBB54962C1A380F00389CFA /* ImageLoader.swift in Sources */,
 				3D9A5EB32C18D0C000B597FE /* FavoriteViewModel.swift in Sources */,
 				3D1728C62C14B0B6004BDDE6 /* Categories.swift in Sources */,
 				3D1728BD2C148E1E004BDDE6 /* RecipeScrollView.swift in Sources */,
@@ -336,6 +362,7 @@
 				3D1728BF2C149973004BDDE6 /* Router.swift in Sources */,
 				3D9A5EAB2C1872B300B597FE /* Persistence.swift in Sources */,
 				3D2822012C1277330088BD59 /* Recipe.swift in Sources */,
+				3DBB54912C1A332B00389CFA /* RemoteImageView.swift in Sources */,
 				3D9A5EB12C18D05C00B597FE /* FavoritesAction.swift in Sources */,
 				3D2822092C1296D90088BD59 /* CategoriesScrollView.swift in Sources */,
 				3D2822102C12A8BE0088BD59 /* HomeViewModel.swift in Sources */,
@@ -346,6 +373,7 @@
 				3D2821F92C1275C50088BD59 /* CategoriesView.swift in Sources */,
 				3D9A5EB52C18DBAA00B597FE /* RecipeListCellView.swift in Sources */,
 				3D1728C82C14BA06004BDDE6 /* CategoriesViewModel.swift in Sources */,
+				3DBB54942C1A365C00389CFA /* RecipeRemoteImageView.swift in Sources */,
 				3D2821E22C1273490088BD59 /* MyFavoriteRecipesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
