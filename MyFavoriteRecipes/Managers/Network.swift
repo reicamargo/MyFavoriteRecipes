@@ -20,8 +20,8 @@ final class Network {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
     }
     
-    func getRecipes() async -> [Recipe] {
-        guard let apiURL = URL(string: baseAPI) else { fatalError("Unable to create URL from baseAPI") }
+    func getRecipes() async throws -> [Recipe] {
+        guard let apiURL = URL(string: baseAPI) else { throw NetworkError.badURL(message: "Unable to create URL from baseAPI") }
         
         do {
             let (data, _) = try await URLSession.shared.data(from: apiURL)
@@ -29,24 +29,34 @@ final class Network {
             return try decoder.decode(RecipeResponse.self, from: data).record.recipes
             
         } catch DecodingError.keyNotFound(let key, let context) {
-            fatalError("Failed to decode due to missing \(key.stringValue) - \(context.debugDescription)")
+            throw NetworkError.unableToDecode(message: "Failed to decode due to missing \(key.stringValue) - \(context.debugDescription)")
+            //fatalError("Failed to decode due to missing \(key.stringValue) - \(context.debugDescription)")
             
         } catch DecodingError.typeMismatch(_, let context) {
-            fatalError("Failed to decode due to type mismatch - \(context.debugDescription)")
+            throw NetworkError.unableToDecode(message:"Failed to decode due to type mismatch - \(context.debugDescription)")
             
         } catch DecodingError.valueNotFound(let type, let context) {
-            fatalError("Failed to decode due to missing \(type) value - \(context.debugDescription)")
+            throw NetworkError.unableToDecode(message:"Failed to decode due to missing \(type) value - \(context.debugDescription)")
             
         } catch DecodingError.dataCorrupted(_) {
-            fatalError("Failed to decode because it appears to be invalid JSON.")
+            throw NetworkError.unableToDecode(message:"Failed to decode because it appears to be invalid JSON.")
             
         } catch {
-            fatalError("Failed to decode: \(error.localizedDescription)")
+            throw NetworkError.unableToDecode(message:"Failed to decode: \(error.localizedDescription)")
         }
     }
 }
 
-enum NetworkError: String, Error {
-    case badURL = "Unable to create URL from baseAPI"
-    case unableToDecode = "Unable to decode"
+enum NetworkError: Error {
+    case badURL(message: String)
+    case unableToDecode(message: String)
+    
+    var description: String {
+        switch self {
+        case .badURL(let message):
+            return message
+        case .unableToDecode(let message):
+            return message
+        }
+    }
 }

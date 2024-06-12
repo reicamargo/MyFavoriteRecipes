@@ -11,20 +11,27 @@ import Foundation
 final class HomeViewModel: ObservableObject {
     @Published var recipes = [Recipe]()
     @Published var isLoading = true
+    @Published var alertItem = AlertItem()
     
     var featuredRecipes: [Recipe] {
         recipes.filter { $0.featured == true }
     }
     
-    init() {
-        
-    }
-    
     func loadRecipes() async {
         isLoading = true
         
-        recipes = await Network.shared.getRecipes()
-        
-        isLoading = false
+        do {
+            recipes = try await Network.shared.getRecipes()
+            isLoading = false
+        } catch {
+            isLoading = false
+            if let networkError = error as? NetworkError {
+                
+                alertItem.set(title: "Something went wrong", message: networkError.description)
+            } else {
+                alertItem.set(title: "Something went wrong", message: "Unable to connect to the server. Please try again later.")
+            }
+            
+        }
     }
 }

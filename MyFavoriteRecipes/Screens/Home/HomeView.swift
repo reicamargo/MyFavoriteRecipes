@@ -36,6 +36,11 @@ struct HomeView: View {
                 .task {
                     await homeVM.loadRecipes()
                 }
+                .alert(homeVM.alertItem.title,
+                       isPresented: $homeVM.alertItem.showAlert,
+                       presenting: homeVM.alertItem,
+                       actions: { alertItem in Button("OK", role: .cancel) { } },
+                       message: { alertItem in alertItem.message })
                 
                 if homeVM.isLoading {
                     LoadingView()

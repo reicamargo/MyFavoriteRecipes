@@ -40,6 +40,11 @@ struct CategoriesView: View {
             .task {
                 await categoriesVM.loadRecipes(selectedCategory: recipeCategory.selected)
             }
+            .alert(categoriesVM.alertItem.title,
+                   isPresented: $categoriesVM.alertItem.showAlert,
+                   presenting: categoriesVM.alertItem,
+                   actions: { alertItem in Button("OK", role: .cancel) { } },
+                   message: { alertItem in alertItem.message })
             .navigationTitle("Categories")
         }
     }

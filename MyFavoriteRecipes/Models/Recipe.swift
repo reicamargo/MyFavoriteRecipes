@@ -11,7 +11,7 @@ struct Recipe: Codable, Hashable {
     let title: String
     let preparationTime: String
     let image: String
-    //let date: Date
+    let date: Date
     let category: String
     let featured: Bool
     let ingredients: [String]
@@ -25,7 +25,7 @@ struct Recipe: Codable, Hashable {
     static let mockRecipe = Recipe(title: "Easy Pizza Toast do rei free",
                                    preparationTime: "Prep: 25 mins",
                                    image: "https://www.warburtonsglutenfree.com/files/pizza_toast.jpg",
-                                   //date: .now,
+                                   date: .now,
                                    category: "Snacks",
                                    featured: true,
                                    ingredients: ["Bread of your choice", "Pizza sauce", "Mozzarella cheese", "Pepperoni/salami", "Oregano"],
